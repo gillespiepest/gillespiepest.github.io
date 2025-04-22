@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gillespie Pest Management | Sugar Grove, OH</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --primary:#1d3557;
+      --secondary:#e63946;
+      --light:#f1faee;
+      --accent:#a8dadc;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html,body{height:100%;font-family:'Montserrat',sans-serif;line-height:1.6;color:var(--primary);background:var(--light);scroll-behavior:smooth;}
+
+    /* ------------------ HEADER / NAV ------------------ */
+    header{position:absolute;top:0;left:0;width:100%;z-index:4;}
+    nav{max-width:1200px;margin:auto;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;}
+    nav .logo{display:flex;align-items:center;gap:.5rem;}
+    nav .logo img{height:48px;width:auto;}
+    nav .logo span{font-size:clamp(1rem,2.3vw,1.5rem);font-weight:600;letter-spacing:.5px;color:var(--light);text-shadow:0 0 6px rgba(0,0,0,.5);white-space:nowrap;}
+    nav ul{list-style:none;display:flex;gap:1.5rem;font-size:clamp(1rem,2.3vw,1.25rem);}
+    nav a{color:var(--light);text-decoration:none;font-weight:500;text-shadow:0 0 6px rgba(0,0,0,.5);transition:color .2s;}
+    nav a:hover{color:var(--accent);} 
+
+    /* mobile menu toggle */
+    .menu-toggle{display:none;background:none;border:none;color:var(--light);font-size:2rem;cursor:pointer;line-height:1;}
+
+    @media(max-width:768px){
+      nav{padding:1rem;}
+      nav ul{position:absolute;top:100%;right:0;width:100%;flex-direction:column;background:var(--primary);padding:1rem 1.25rem;display:none;gap:1rem;border-bottom-left-radius:12px;box-shadow:0 8px 16px rgba(0,0,0,.25);}  
+      nav ul.open{display:flex;}
+      .menu-toggle{display:block;}
+    }
+
+    /* ------------------ HERO ------------------ */
+    .hero{position:relative;width:100%;height:100dvh;overflow:hidden;}
+    .hero video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;pointer-events:none;}
+    .hero .overlay{position:absolute;inset:0;background:rgba(0,0,0,.45);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 1rem;}
+    .hero h1{font-size:clamp(2rem,6vw,4rem);margin-bottom:.5rem;font-weight:600;color:#ffffff;}
+    .hero p{font-size:clamp(1rem,3.5vw,1.5rem);color:#ffffff;}
+    .cta-btn{display:inline-block;margin-top:1.5rem;background:var(--secondary);color:var(--light);padding:.9rem 1.6rem;border-radius:8px;font-weight:600;text-decoration:none;transition:background .3s;}
+    .cta-btn:hover{background:#d62839;}
+
+    /* ------------------ UTILITY ------------------ */
+    .section{padding:4rem 2rem;max-width:1200px;margin:auto;}
+    .section-title{font-size:2rem;margin-bottom:1.5rem;text-align:center;font-family:'Lora',serif;color:var(--primary);} 
+
+    /* ------------------ SERVICES ------------------ */
+    .services{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+    .service-card{background:var(--accent);color:var(--primary);padding:2rem;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,.08);transition:transform .3s;}
+    .service-card:hover{transform:translateY(-4px);} 
+
+    /* ------------------ OWNERS ------------------ */
+    .owners-photo{width:100%;max-width:400px;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,.15);margin-bottom:1.5rem;} 
+
+    /* ------------------ CONTACT FORM ------------------ */
+    .contact-form{display:grid;gap:1rem;max-width:600px;margin:auto;}
+    .contact-form input,.contact-form textarea{padding:.85rem 1rem;border:2px solid var(--primary);border-radius:8px;font-size:1rem;width:100%;}
+    .contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:var(--secondary);}  
+    .contact-form button{background:var(--secondary);color:var(--light);padding:.85rem 1rem;border:none;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;transition:background .3s;}
+    .contact-form button:hover{background:#d62839;}
+
+    @media(max-width:500px){
+      .section{padding:3rem 1rem;}
+      .service-card{padding:1.5rem;}
+    }
+
+    /* ------------------ FOOTER ------------------ */
+    footer{background:var(--primary);color:var(--light);text-align:center;padding:1.5rem 1rem;font-size:.9rem;}
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="logo.png" alt="Gillespie Pest Management Logo">
+        <span>Gillespie Pest Management</span>
+      </div>
+      <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#owners">Owners</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <video src="hero.mp4" autoplay muted loop playsinline></video>
+    <div class="overlay">
+      <h1>Gillespie Pest Management</h1>
+      <p>Licensed &amp; Insured &nbsp;| <i class="fas fa-phone-alt mr-3"></i>
+                                        <span>
+                                        <a href="tel:7405035563" class="underline" style="color:#fff;">(740)&nbsp;503‑5563</a>
+                                        </span>
+      </p>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section">
+    <h2 class="section-title">Our Services</h2>
+    <div class="services">
+      <div class="service-card"><h3>Residential Protection</h3><p>Customized, eco‑friendly solutions that keep your home safe from ants, roaches, spiders, and more.</p></div>
+      <div class="service-card"><h3>Commercial Programs</h3><p>Comprehensive pest management plans for restaurants, offices, and retail spaces.</p></div>
+      <div class="service-card"><h3>Rodent Control</h3><p>Secure, humane trapping and exclusion techniques that prevent rodents from returning.</p></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <h2 class="section-title">Why Choose Us?</h2>
+    <p style="max-width:800px;margin:auto;text-align:center;">Gillespie Pest Management is a locally owned, <strong>licensed &amp; insured</strong> team serving Sugar Grove and surrounding Fairfield County communities. Our specialists combine modern science with old‑fashioned service to deliver results you can trust.</p>
+  </section>
+
+  <!-- OWNERS -->
+  <section id="owners" class="section">
+    <h2 class="section-title">⭐️ Meet the Owners ⭐️</h2>
+    <div style="max-width:800px;margin:auto;text-align:center;">
+      <img src="owners.png" alt="Tucker and Haley Gillespie" class="owners-photo">
+      <h3 style="margin-bottom:.5rem;">Tucker Gillespie + Haley Gillespie</h3>
+      <p>Gillespie Pest Management, formerly known as Gillespie Pest Control, brings over <strong>12 years of pest‑control experience</strong> to every job. Haley’s father, Mike Lehman, owned Lehman Family Pest Control for more than 20 years before his passing, inspiring the family tradition we carry on today.</p>
+      <p>We’re a <strong>local, family‑run business</strong> that takes great pride in quality work and helping others at an affordable cost. We look forward to serving our community with all your pest and rodent‑control needs!</p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <h2 class="section-title">Request a Quote</h2>
+    <p style="text-align:center;margin-bottom:1rem;font-weight:600;font-size:1.1rem;">
+      Call us at <a href="tel:+17405035563" style="color:var(--secondary);text-decoration:none;">(740) 503‑5563</a> or send a message below.
+    </p>
+
+    <form class="contact-form" action="mailto:gillespiepestcontrol@gmail.com" method="post" enctype="text/plain">
+      <input type="text"  name="name"    placeholder="Name"          required>
+      <input type="email" name="email"   placeholder="Email Address" required>
+      <input type="tel"   name="phone"   placeholder="Phone Number"  required>
+      <textarea name="message" rows="5"  placeholder="Tell us about your pest issue" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    © <span id="year"></span> Gillespie Pest Management • Sugar Grove, Ohio • (740) 503‑5563
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    /* Year */
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* Mobile menu toggle */
+    const menuBtn = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('nav ul');
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      menuBtn.innerHTML = navLinks.classList.contains('open') ? '&times;' : '&#9776;';
+    });
+  </script>
+</body>
+</html>
+
